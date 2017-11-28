@@ -1,0 +1,15 @@
+{
+  "properties": [
+    {
+      "name": "spring.profiles.configure.includes",
+      "type": "java.util.Set<java.lang.Class>",
+      "description": "Import Configurations For Your Spring Profile."
+    },
+    {
+      "name": "mybatis.configuration.sql-format",
+      "type": "java.lang.Boolean",
+      "defaultValue": false,
+      "description": "是否开启 SQL 格式化."
+    }
+  ]
+}
