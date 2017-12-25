@@ -37,11 +37,11 @@ public class MyBatisAutoConfiguration {
     @Bean
     @ConditionalOnProperty(prefix = "mybatis.configuration", name = "sql-format", havingValue = "true")
     @ConditionalOnMissingBean
-    public SqlFormatterPostProcessor sqlFormatterPostProcessor() {
-        return new SqlFormatterPostProcessor();
+    public SqlSessionFactoryBeanPostProcessor sqlSessionFactoryBeanPostProcessor() {
+        return new SqlSessionFactoryBeanPostProcessor();
     }
 
-    static class SqlFormatterPostProcessor implements BeanPostProcessor {
+    static class SqlSessionFactoryBeanPostProcessor implements BeanPostProcessor {
 
         @Override
         public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {

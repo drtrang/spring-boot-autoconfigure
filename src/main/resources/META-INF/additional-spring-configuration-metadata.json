@@ -3,7 +3,7 @@
     {
       "name": "spring.profiles.configure.includes",
       "type": "java.util.Set<java.lang.Class>",
-      "description": "在当前 Profile 下需要引入的 Configurations."
+      "description": "在当前 Profile 下需要引入的 Configuration 类."
     },
     {
       "name": "mybatis.configuration.sql-format",
