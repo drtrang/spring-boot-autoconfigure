@@ -19,7 +19,7 @@ import java.util.Map;
  */
 public class SqlMapper {
 
-    private final MSUtils msUtils;
+    private final MsUtils msUtils;
     private final SqlSession sqlSession;
 
     /**
@@ -29,7 +29,7 @@ public class SqlMapper {
      */
     public SqlMapper(SqlSession sqlSession) {
         this.sqlSession = sqlSession;
-        this.msUtils = new MSUtils(sqlSession.getConfiguration());
+        this.msUtils = new MsUtils(sqlSession.getConfiguration());
     }
 
     /**
@@ -235,11 +235,11 @@ public class SqlMapper {
         return sqlSession.delete(msId, value);
     }
 
-    private class MSUtils {
+    private class MsUtils {
         private Configuration configuration;
         private LanguageDriver languageDriver;
 
-        private MSUtils(Configuration configuration) {
+        private MsUtils(Configuration configuration) {
             this.configuration = configuration;
             languageDriver = configuration.getDefaultScriptingLanguageInstance();
         }
