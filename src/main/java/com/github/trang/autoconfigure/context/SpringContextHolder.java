@@ -11,8 +11,10 @@ import java.util.Map;
  * 以静态变量保存 Spring ApplicationContext
  * Spring 容器启动后，取出 ApplicationContext 中的 bean
  *
+ * @deprecated 请使用 #{@link ApplicationContextHolder} 代替该类
  * @author trang
  */
+@Deprecated
 public class SpringContextHolder implements ApplicationContextAware {
 
     /** Spring容器上下文环境 */
