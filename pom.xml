@@ -7,35 +7,40 @@
     <parent>
         <groupId>com.github.drtrang</groupId>
         <artifactId>parent</artifactId>
-        <version>1.0.7</version>
+        <version>1.1.0-SNAPSHOT</version>
     </parent>
 
     <artifactId>spring-boot-autoconfigure</artifactId>
-    <version>1.0.4</version>
+    <version>1.1.0-SNAPSHOT</version>
 
     <name>Spring Boot AutoConfigure</name>
-    <description>Spring Boot AutoConfigure.</description>
+    <description>Spring Boot AutoConfigure</description>
     <url>https://github.com/drtrang/spring-boot-autoconfigure</url>
+
+    <inceptionYear>2017</inceptionYear>
+
+    <developers>
+        <developer>
+            <id>trang</id>
+            <name>trang</name>
+            <email>donghao.l@hotmail.com</email>
+            <timezone>+8</timezone>
+            <url>http://blog.trang.space/</url>
+        </developer>
+    </developers>
 
     <licenses>
         <license>
             <name>The Apache Software License, Version 2.0</name>
-            <url>https://github.com/drtrang/spring-boot-autoconfigure/blob/master/LICENSE</url>
+            <url>http://www.apache.org/licenses/LICENSE-2.0</url>
+            <distribution>repo</distribution>
         </license>
     </licenses>
 
-    <developers>
-        <developer>
-            <name>trang</name>
-            <email>donghao.l@hotmail.com</email>
-        </developer>
-    </developers>
-
     <scm>
-        <url>https://github.com/drtrang/spring-boot-autoconfigure.git</url>
         <connection>scm:git:https://github.com/drtrang/spring-boot-autoconfigure.git</connection>
-        <developerConnection>scm:git:https://github.com/drtrang</developerConnection>
-        <tag>HEAD</tag>
+        <developerConnection>scm:git:git@github.com:drtrang/spring-boot-autoconfigure.git</developerConnection>
+        <url>https://github.com/drtrang/spring-boot-autoconfigure</url>
     </scm>
 
     <dependencies>

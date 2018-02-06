@@ -1,6 +1,6 @@
 package com.github.trang.autoconfigure.context;
 
-import com.github.trang.autoconfigure.context.SpringProfileAutoConfiguration.SpringProfileImportSelector;
+import com.github.trang.autoconfigure.context.ApplicationProfileAutoConfiguration.SpringProfileImportSelector;
 import org.springframework.boot.autoconfigure.AutoConfigureOrder;
 import org.springframework.boot.bind.RelaxedPropertyResolver;
 import org.springframework.context.EnvironmentAware;
@@ -24,7 +24,7 @@ import java.util.Objects;
 @Configuration
 @Import(SpringProfileImportSelector.class)
 @AutoConfigureOrder(Ordered.HIGHEST_PRECEDENCE)
-public class SpringProfileAutoConfiguration {
+public class ApplicationProfileAutoConfiguration {
 
     static class SpringProfileImportSelector implements ImportSelector, EnvironmentAware {
 

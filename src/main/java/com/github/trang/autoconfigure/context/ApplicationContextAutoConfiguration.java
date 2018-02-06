@@ -19,15 +19,7 @@ public class ApplicationContextAutoConfiguration {
 
     @Bean
     @ConditionalOnMissingBean
-    @ConditionalOnProperty(prefix = "spring.context-holder", name = "enabled", havingValue = "true", matchIfMissing = true)
-    public SpringContextHolder springContextHolder() {
-        log.warn("SpringContextHolder class is deprecated, please replace it with ApplicationContextHolder.");
-        return new SpringContextHolder();
-    }
-
-    @Bean
-    @ConditionalOnMissingBean
-    @ConditionalOnProperty(prefix = "spring.context-holder", name = "enabled", havingValue = "true", matchIfMissing = true)
+    @ConditionalOnProperty(prefix = "spring.context-holder", name = "enabled", havingValue = "true")
     public ApplicationContextHolder applicationContextHolder() {
         return new ApplicationContextHolder();
     }

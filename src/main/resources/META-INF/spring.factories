@@ -1,4 +1,4 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  com.github.trang.autoconfigure.context.SpringProfileAutoConfiguration,\
+  com.github.trang.autoconfigure.context.ApplicationProfileAutoConfiguration,\
   com.github.trang.autoconfigure.context.ApplicationContextAutoConfiguration,\
   com.github.trang.autoconfigure.mybatis.MyBatisAutoConfiguration
