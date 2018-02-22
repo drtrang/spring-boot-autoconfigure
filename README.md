@@ -5,13 +5,13 @@
 [![GitHub Release](https://img.shields.io/github/release/drtrang/spring-boot-autoconfigure.svg?style=flat-square)](https://github.com/drtrang/spring-boot-autoconfigure/releases)
 [![License](http://img.shields.io/badge/license-apache%202-blue.svg?style=flat-square)](http://www.apache.org/licenses/LICENSE-2.0)
 
-Spring Boot Autoconfigure 包含一些自动配置拓展。
+Spring Boot Autoconfigure 包含一些拓展的自动配置功能。
 
 ## 依赖
 ```xml
 <dependency>
     <groupId>com.github.drtrang</groupId>
     <artifactId>spring-boot-autoconfigure</artifactId>
-    <version>1.1.0</version>
+    <version>1.1.1-SNAPSHOT</version>
 </dependency>
 ```
