@@ -2,7 +2,10 @@ package com.github.trang.autoconfigure.mybatis;
 
 import com.alibaba.druid.sql.SQLUtils;
 import com.alibaba.druid.sql.SQLUtils.FormatOption;
-import com.alibaba.druid.sql.visitor.VisitorFeature;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 import org.apache.ibatis.cache.CacheKey;
 import org.apache.ibatis.executor.Executor;
 import org.apache.ibatis.mapping.BoundSql;
@@ -25,9 +28,14 @@ import java.util.Properties;
         @Signature(type = Executor.class, method = "query", args = {MappedStatement.class, Object.class, RowBounds.class, ResultHandler.class, CacheKey.class, BoundSql.class})
     }
 )
+@RequiredArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
 public class SqlFormatterInterceptor implements Interceptor {
 
-    private static final FormatOption DEFAULT_FORMAT_OPTION = new FormatOption(VisitorFeature.OutputUCase);
+    private final String dbType;
+    private FormatOption formatOption;
 
     @Override
     public Object intercept(Invocation invocation) throws Throwable {
@@ -53,7 +61,10 @@ public class SqlFormatterInterceptor implements Interceptor {
         Field field = BoundSql.class.getDeclaredField("sql");
         field.setAccessible(true);
         // 使用 Druid 提供的格式化工具
-        field.set(boundSql, SQLUtils.formatMySql(boundSql.getSql(), DEFAULT_FORMAT_OPTION));
+        String formattedSql = SQLUtils.format(boundSql.getSql(), dbType, formatOption);
+        // FIXME Druid 格式化后会存在多余空格的问题，进一步处理掉，等 druid 修复后去掉
+        String finalSql = formattedSql.replace(" ,", ",");
+        field.set(boundSql, finalSql);
         // 注：下面的方法可以根据自己的逻辑调用多次，在分页插件中，count 和 page 各调用了一次
         return executor.query(ms, parameter, rowBounds, resultHandler, cacheKey, boundSql);
     }

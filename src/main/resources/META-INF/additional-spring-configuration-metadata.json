@@ -2,20 +2,118 @@
   "properties": [
     {
       "name": "spring.profiles.configure.includes",
-      "type": "java.util.Set<java.lang.Class>",
-      "description": "在当前 Profile 下需要引入的 Configuration 类."
+      "description": "在当前 Profile 下需要引入的 Configuration 类.",
+      "type": "java.util.Set<java.lang.Class>"
     },
     {
       "name": "spring.context-holder.enabled",
+      "description": "是否开启上下文 ApplicationContextHolder.",
       "type": "java.lang.Boolean",
-      "defaultValue": true,
-      "description": "是否开启上下文 ApplicationContextHolder."
+      "defaultValue": true
     },
     {
       "name": "mybatis.configuration.sql-format",
+      "description": "是否开启 SQL 格式化.",
+      "type": "java.lang.Boolean",
+      "defaultValue": false
+    },
+    {
+      "name": "mybatis.configuration.sql-format-option.desensitize",
+      "description": "是否开启不敏感表名.",
       "type": "java.lang.Boolean",
       "defaultValue": false,
-      "description": "是否开启 SQL 格式化."
+      "sourceType": "com.alibaba.druid.sql.SQLUtils$FormatOption"
+    },
+    {
+      "name": "mybatis.configuration.sql-format-option.parameterized",
+      "description": "是否开启 SQL 参数化.",
+      "type": "java.lang.Boolean",
+      "defaultValue": false,
+      "sourceType": "com.alibaba.druid.sql.SQLUtils$FormatOption"
+    },
+    {
+      "name": "mybatis.configuration.sql-format-option.pretty-format",
+      "description": "是否开启 SQL 格式化.",
+      "type": "java.lang.Boolean",
+      "defaultValue": false,
+      "sourceType": "com.alibaba.druid.sql.SQLUtils$FormatOption"
+    },
+    {
+      "name": "mybatis.configuration.sql-format-option.upp-case",
+      "description": "是否开启关键字大写.",
+      "type": "java.lang.Boolean",
+      "defaultValue": true,
+      "sourceType": "com.alibaba.druid.sql.SQLUtils$FormatOption"
+    },
+    {
+      "name": "mybatis.configuration.sql-format-option.db-type",
+      "description": "数据库类型.",
+      "type": "java.lang.String",
+      "defaultValue": "mysql"
+    }
+  ],
+  "hints": [
+    {
+      "name": "mybatis.configuration.sql-format-option.db-type",
+      "values": [
+        {
+          "value": "db2"
+        },
+        {
+          "value": "postgresql"
+        },
+        {
+          "value": "sqlserver"
+        },
+        {
+          "value": "oracle"
+        },
+        {
+          "value": "AliOracle"
+        },
+        {
+          "value": "mysql"
+        },
+        {
+          "value": "mariadb"
+        },
+        {
+          "value": "hive"
+        },
+        {
+          "value": "h2"
+        },
+        {
+          "value": "dm"
+        },
+        {
+          "value": "kingbase"
+        },
+        {
+          "value": "oceanbase"
+        },
+        {
+          "value": "odps"
+        },
+        {
+          "value": "teradata"
+        },
+        {
+          "value": "log4jdbc"
+        },
+        {
+          "value": "phoenix"
+        },
+        {
+          "value": "edb"
+        },
+        {
+          "value": "kylin"
+        },
+        {
+          "value": "sqlite"
+        }
+      ]
     }
   ]
 }
