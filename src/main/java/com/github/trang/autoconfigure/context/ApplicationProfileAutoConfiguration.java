@@ -2,7 +2,8 @@ package com.github.trang.autoconfigure.context;
 
 import com.github.trang.autoconfigure.context.ApplicationProfileAutoConfiguration.SpringProfileImportSelector;
 import org.springframework.boot.autoconfigure.AutoConfigureOrder;
-import org.springframework.boot.bind.RelaxedPropertyResolver;
+import org.springframework.boot.context.properties.bind.Bindable;
+import org.springframework.boot.context.properties.bind.Binder;
 import org.springframework.context.EnvironmentAware;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
@@ -11,8 +12,7 @@ import org.springframework.core.Ordered;
 import org.springframework.core.env.Environment;
 import org.springframework.core.type.AnnotationMetadata;
 
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 
 /**
  * Spring Profile 的自动配置
@@ -28,19 +28,14 @@ public class ApplicationProfileAutoConfiguration {
 
     static class SpringProfileImportSelector implements ImportSelector, EnvironmentAware {
 
-        private static final String CONFIGURE = "spring.profiles.configure.includes";
+        private static final String PREFIX = "spring.profiles.configure.includes";
 
-        private RelaxedPropertyResolver resolver;
+        private Set<String> configurations;
 
         @Override
         public String[] selectImports(AnnotationMetadata metadata) {
-            Map<String, Object> properties = resolver.getSubProperties("");
-            if (properties == null || properties.isEmpty()) {
-                return new String[0];
-            }
-            return properties.values().stream()
+            return configurations.stream()
                     .filter(Objects::nonNull)
-                    .map(Objects::toString)
                     .map(String::trim)
                     .filter(s -> !s.isEmpty())
                     .toArray(String[]::new);
@@ -48,7 +43,9 @@ public class ApplicationProfileAutoConfiguration {
 
         @Override
         public void setEnvironment(Environment environment) {
-            this.resolver = new RelaxedPropertyResolver(environment, CONFIGURE);
+            this.configurations = Binder.get(environment)
+                    .bind(PREFIX, Bindable.setOf(String.class))
+                    .orElseGet(HashSet::new);
         }
 
     }

@@ -9,9 +9,17 @@ Spring Boot Autoconfigure 包含一些拓展的自动配置功能。
 
 ## 依赖
 ```xml
+<!-- spring boot 1.x -->
 <dependency>
     <groupId>com.github.drtrang</groupId>
     <artifactId>spring-boot-autoconfigure</artifactId>
-    <version>1.1.1-SNAPSHOT</version>
+    <version>1.1.1</version>
+</dependency>
+
+<!-- spring boot 2.x -->
+<dependency>
+    <groupId>com.github.drtrang</groupId>
+    <artifactId>spring-boot2-autoconfigure</artifactId>
+    <version>1.1.1</version>
 </dependency>
 ```
