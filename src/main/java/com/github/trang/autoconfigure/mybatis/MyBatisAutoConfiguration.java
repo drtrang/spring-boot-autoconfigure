@@ -39,15 +39,15 @@ public class MyBatisAutoConfiguration {
 
     @Bean
     @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
-    @ConditionalOnBean(SqlSession.class)
     @ConditionalOnMissingBean
+    @ConditionalOnBean(SqlSession.class)
     public SqlMapper sqlMapper(SqlSession sqlSession) {
         return new SqlMapper(sqlSession);
     }
 
     @Bean
-    @ConditionalOnProperty(prefix = "mybatis.configuration", name = "sql-format", havingValue = "true")
     @ConditionalOnMissingBean
+    @ConditionalOnProperty(prefix = "mybatis.configuration", name = "sql-format", havingValue = "true")
     public SqlSessionFactoryBeanPostProcessor sqlSessionFactoryBeanPostProcessor() {
         return new SqlSessionFactoryBeanPostProcessor();
     }
