@@ -118,7 +118,7 @@ class OnBeansCondition extends SpringBootCondition implements ConfigurationCondi
 
     private boolean isNonMatchingBeans(ConditionContext context, BeanSearchSpec beans) {
         ConfigurableListableBeanFactory beanFactory = context.getBeanFactory();
-        if (beans.getStrategy() == SearchStrategy.PARENTS || beans.getStrategy() == SearchStrategy.ANCESTORS) {
+        if (beans.getStrategy() == SearchStrategy.ANCESTORS) {
             BeanFactory parent = beanFactory.getParentBeanFactory();
             Assert.isInstanceOf(ConfigurableListableBeanFactory.class, parent, "Unable to use SearchStrategy.PARENTS");
             beanFactory = (ConfigurableListableBeanFactory) parent;
@@ -173,7 +173,7 @@ class OnBeansCondition extends SpringBootCondition implements ConfigurationCondi
         if (considerHierarchy && beanFactory instanceof HierarchicalBeanFactory) {
             BeanFactory parent = ((HierarchicalBeanFactory) beanFactory).getParentBeanFactory();
             if (parent instanceof ListableBeanFactory) {
-                collectBeanNamesForType(result, (ListableBeanFactory) parent, type, considerHierarchy);
+                collectBeanNamesForType(result, (ListableBeanFactory) parent, type, true);
             }
         }
     }
@@ -197,7 +197,7 @@ class OnBeansCondition extends SpringBootCondition implements ConfigurationCondi
         if (considerHierarchy) {
             BeanFactory parent = ((HierarchicalBeanFactory) beanFactory).getParentBeanFactory();
             if (parent instanceof ListableBeanFactory) {
-                collectBeanNamesForAnnotation(names, (ListableBeanFactory) parent, annotationType, considerHierarchy);
+                collectBeanNamesForAnnotation(names, (ListableBeanFactory) parent, annotationType, true);
             }
         }
     }
@@ -209,7 +209,7 @@ class OnBeansCondition extends SpringBootCondition implements ConfigurationCondi
 
     private List<String> getPrimaryBeans(ConfigurableListableBeanFactory beanFactory,
                                          List<String> beanNames, boolean considerHierarchy) {
-        List<String> primaryBeans = new ArrayList<String>();
+        List<String> primaryBeans = new ArrayList<>();
         for (String beanName : beanNames) {
             BeanDefinition beanDefinition = findBeanDefinition(beanFactory, beanName, considerHierarchy);
             if (beanDefinition != null && beanDefinition.isPrimary()) {
@@ -225,7 +225,7 @@ class OnBeansCondition extends SpringBootCondition implements ConfigurationCondi
             return beanFactory.getBeanDefinition(beanName);
         }
         if (considerHierarchy && beanFactory.getParentBeanFactory() instanceof ConfigurableListableBeanFactory) {
-            return findBeanDefinition(((ConfigurableListableBeanFactory) beanFactory.getParentBeanFactory()), beanName, considerHierarchy);
+            return findBeanDefinition(((ConfigurableListableBeanFactory) beanFactory.getParentBeanFactory()), beanName, true);
         }
         return null;
     }
