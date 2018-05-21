@@ -5,7 +5,7 @@
 [![GitHub Release](https://img.shields.io/github/release/drtrang/spring-boot-autoconfigure.svg?style=flat-square)](https://github.com/drtrang/spring-boot-autoconfigure/releases)
 [![License](http://img.shields.io/badge/license-apache%202-blue.svg?style=flat-square)](http://www.apache.org/licenses/LICENSE-2.0)
 
-Spring Boot Autoconfigure 包含一些拓展的自动配置功能。
+Spring Boot Autoconfigure 包含一些拓展的自动配置功能，只支持 Java8。
 
 ## 依赖
 ```xml
@@ -13,13 +13,13 @@ Spring Boot Autoconfigure 包含一些拓展的自动配置功能。
 <dependency>
     <groupId>com.github.drtrang</groupId>
     <artifactId>spring-boot-autoconfigure</artifactId>
-    <version>1.1.1</version>
+    <version>1.1.2</version>
 </dependency>
 
 <!-- spring boot 2.x -->
 <dependency>
     <groupId>com.github.drtrang</groupId>
     <artifactId>spring-boot2-autoconfigure</artifactId>
-    <version>1.1.1</version>
+    <version>1.1.2</version>
 </dependency>
 ```
