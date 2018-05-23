@@ -44,6 +44,10 @@
         <tag>HEAD</tag>
     </scm>
 
+    <properties>
+        <druid.version>1.1.9</druid.version>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -71,13 +75,11 @@
         <dependency>
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis</artifactId>
-            <version>${mybatis.version}</version>
             <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>druid</artifactId>
-            <version>${druid.version}</version>
             <optional>true</optional>
         </dependency>
     </dependencies>

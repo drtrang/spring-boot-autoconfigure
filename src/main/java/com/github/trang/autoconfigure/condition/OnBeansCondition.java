@@ -87,7 +87,7 @@ class OnBeansCondition extends SpringBootCondition implements ConfigurationCondi
 
     private boolean isMatchingBeans(ConditionContext context, BeanSearchSpec beans) {
         ConfigurableListableBeanFactory beanFactory = context.getBeanFactory();
-        if (beans.getStrategy() == SearchStrategy.PARENTS || beans.getStrategy() == SearchStrategy.ANCESTORS) {
+        if (beans.getStrategy() == SearchStrategy.ANCESTORS) {
             BeanFactory parent = beanFactory.getParentBeanFactory();
             Assert.isInstanceOf(ConfigurableListableBeanFactory.class, parent, "Unable to use SearchStrategy.PARENTS");
             beanFactory = (ConfigurableListableBeanFactory) parent;
