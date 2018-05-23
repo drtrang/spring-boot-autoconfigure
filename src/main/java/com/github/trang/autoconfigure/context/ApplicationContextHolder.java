@@ -1,15 +1,15 @@
 package com.github.trang.autoconfigure.context;
 
+import java.io.IOException;
+import java.lang.annotation.Annotation;
+import java.util.Map;
+
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.ApplicationEvent;
 import org.springframework.core.ResolvableType;
 import org.springframework.core.env.Environment;
 import org.springframework.core.io.Resource;
-
-import java.io.IOException;
-import java.lang.annotation.Annotation;
-import java.util.Map;
 
 /**
  * 以静态变量保存 ApplicationContext，供容器启动后使用

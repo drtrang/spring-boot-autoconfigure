@@ -1,16 +1,4 @@
 {
-  "groups": [
-    {
-      "name": "mybatis.configuration",
-      "type": "com.github.trang.autoconfigure.mybatis.MyBatisAutoConfiguration$SqlFormatProperties",
-      "sourceType": "com.github.trang.autoconfigure.mybatis.MyBatisAutoConfiguration$SqlFormatProperties"
-    },
-    {
-      "name": "mybatis.configuration.sql-format-option",
-      "type": "com.github.trang.autoconfigure.mybatis.MyBatisAutoConfiguration$DbTypeProperties",
-      "sourceType": "com.github.trang.autoconfigure.mybatis.MyBatisAutoConfiguration$DbTypeProperties"
-    }
-  ],
   "properties": [
     {
       "name": "spring.profiles.configure.includes",
@@ -19,7 +7,7 @@
     },
     {
       "name": "spring.context-holder.enabled",
-      "description": "是否开启上下文 ApplicationContextHolder.",
+      "description": "是否开启 ApplicationContextHolder.",
       "type": "java.lang.Boolean",
       "defaultValue": true
     },
@@ -56,12 +44,6 @@
       "type": "java.lang.Boolean",
       "defaultValue": true,
       "sourceType": "com.alibaba.druid.sql.SQLUtils$FormatOption"
-    },
-    {
-      "name": "mybatis.configuration.sql-format-option.db-type",
-      "description": "数据库类型.",
-      "type": "java.lang.String",
-      "defaultValue": "mysql"
     }
   ],
   "hints": [

@@ -1,21 +1,27 @@
 package com.github.trang.autoconfigure.mybatis;
 
-import com.alibaba.druid.sql.SQLUtils;
-import com.alibaba.druid.sql.SQLUtils.FormatOption;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import lombok.Setter;
+import java.lang.reflect.Field;
+import java.util.Properties;
+
 import org.apache.ibatis.cache.CacheKey;
 import org.apache.ibatis.executor.Executor;
 import org.apache.ibatis.mapping.BoundSql;
 import org.apache.ibatis.mapping.MappedStatement;
-import org.apache.ibatis.plugin.*;
+import org.apache.ibatis.plugin.Interceptor;
+import org.apache.ibatis.plugin.Intercepts;
+import org.apache.ibatis.plugin.Invocation;
+import org.apache.ibatis.plugin.Plugin;
+import org.apache.ibatis.plugin.Signature;
 import org.apache.ibatis.session.ResultHandler;
 import org.apache.ibatis.session.RowBounds;
 
-import java.lang.reflect.Field;
-import java.util.Properties;
+import com.alibaba.druid.sql.SQLUtils;
+import com.alibaba.druid.sql.SQLUtils.FormatOption;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 
 /**
  * 格式化执行的 SQL
@@ -63,6 +69,7 @@ public class SqlFormatterInterceptor implements Interceptor {
         // 使用 Druid 提供的格式化工具
         String formattedSql = SQLUtils.format(boundSql.getSql(), dbType, formatOption);
         // FIXME Druid 格式化后会存在多余空格的问题，进一步处理掉，等 druid 修复后去掉
+        // FIXME 2.20 提的，预计 1.1.9 版本修复，已经两个版本了还没修复……
         String finalSql = formattedSql.replace(" ,", ",");
         field.set(boundSql, finalSql);
         // 注：下面的方法可以根据自己的逻辑调用多次，在分页插件中，count 和 page 各调用了一次
