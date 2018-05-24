@@ -1,6 +1,10 @@
 package com.github.trang.autoconfigure.context;
 
-import com.github.trang.autoconfigure.context.ApplicationProfileAutoConfiguration.SpringProfileImportSelector;
+import static java.util.Collections.emptySet;
+
+import java.util.Objects;
+import java.util.Set;
+
 import org.springframework.boot.autoconfigure.AutoConfigureOrder;
 import org.springframework.boot.context.properties.bind.Bindable;
 import org.springframework.boot.context.properties.bind.Binder;
@@ -12,18 +16,18 @@ import org.springframework.core.Ordered;
 import org.springframework.core.env.Environment;
 import org.springframework.core.type.AnnotationMetadata;
 
-import java.util.*;
+import com.github.trang.autoconfigure.context.ApplicationProfileAutoConfiguration.SpringProfileImportSelector;
 
 /**
  * Spring Profile 的自动配置
- *
+ * <p>
  * 用于需要区分运行环境的配置，做到声明的配置只在当前环境生效
  *
  * @author trang
  */
 @Configuration
-@Import(SpringProfileImportSelector.class)
 @AutoConfigureOrder(Ordered.HIGHEST_PRECEDENCE)
+@Import(SpringProfileImportSelector.class)
 public class ApplicationProfileAutoConfiguration {
 
     static class SpringProfileImportSelector implements ImportSelector, EnvironmentAware {
@@ -45,7 +49,7 @@ public class ApplicationProfileAutoConfiguration {
         public void setEnvironment(Environment environment) {
             this.configurations = Binder.get(environment)
                     .bind(PREFIX, Bindable.setOf(String.class))
-                    .orElseGet(HashSet::new);
+                    .orElse(emptySet());
         }
 
     }

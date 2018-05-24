@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.1.4
+### Enhancements
+1. 更新 `parent` 版本为 1.2.2
+2. 修复格式化 SQL 异常的 bug
+
 ## 1.1.2
 ### Enhancements
 1. 更新 `parent` 版本为 1.2.0
