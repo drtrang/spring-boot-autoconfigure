@@ -44,7 +44,7 @@ public class SqlFormatterConfiguration {
     @Getter
     @Setter
     static class SqlFormatProperties {
-        /** 格式化参数. */
+        /** 格式化参数 */
         @NestedConfigurationProperty
         private FormatOption sqlFormatOption = new FormatOption(VisitorFeature.OutputUCase);
     }
@@ -53,7 +53,7 @@ public class SqlFormatterConfiguration {
     @Getter
     @Setter
     static class DbTypeProperties {
-        /** 数据库类型，默认值：mysql. */
+        /** 数据库类型，默认值：mysql */
         private String dbType = "mysql";
     }
 
