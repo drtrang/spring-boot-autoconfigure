@@ -19,9 +19,11 @@ import org.springframework.core.type.AnnotationMetadata;
 import com.github.trang.autoconfigure.context.ApplicationProfileAutoConfiguration.SpringProfileImportSelector;
 
 /**
- * Spring Profile 的自动配置
+ * Spring Profile 的自动配置，默认自动加载
  * <p>
  * 用于需要区分运行环境的配置，做到声明的配置只在当前环境生效
+ * <p>
+ * 其实最好是用 exclude 的方式，但是目前还没有想好实现方式，等什么时候把 OverrideAutoConfiguration 的原理看懂了就换了它！
  *
  * @author trang
  */

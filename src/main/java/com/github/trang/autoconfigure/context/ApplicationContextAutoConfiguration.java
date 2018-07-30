@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * Spring 自定义工具的自动配置
+ * ApplicationContextHolder 的自动配置，默认自动加载
  *
  * @author trang
  */

@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.1.7
+### Enhancements
+1. 更新 `parent` 版本为 1.3.1
+
 ## 1.1.6
 ### Enhancements
 1. 更新 `parent` 版本为 1.3.0
