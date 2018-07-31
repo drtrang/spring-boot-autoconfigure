@@ -13,13 +13,13 @@ Spring Boot Autoconfigure 包含一些拓展的自动配置功能，只支持 Ja
 <dependency>
     <groupId>com.github.drtrang</groupId>
     <artifactId>spring-boot-autoconfigure</artifactId>
-    <version>1.1.7</version>
+    <version>1.1.8</version>
 </dependency>
 
 <!-- spring boot 2.x -->
 <dependency>
     <groupId>com.github.drtrang</groupId>
     <artifactId>spring-boot2-autoconfigure</artifactId>
-    <version>1.1.7</version>
+    <version>1.1.8</version>
 </dependency>
 ```
